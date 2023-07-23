@@ -1,0 +1,25 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: magiclogapi
+spec:
+  containers:
+    - name: magic_api
+      image: magic_api:latest
+      # Aquí se especifican los puertos y configuración del contenedor
+      # ...
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: magic_api
+spec:
+  selector:
+    app: magiclogapi  # Etiqueta que selecciona los pods que quieres exponer
+  type: LoadBalancer
+  ports:
+    - protocol: TCP
+      port: 80     # Puerto del servicio
+      targetPort: 8080 

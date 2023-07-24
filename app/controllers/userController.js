@@ -74,7 +74,7 @@ class userController {
     }else{
             res.status(200).send({
                 status: 'Success',
-                description: validate
+               data: []
             });
 
     }

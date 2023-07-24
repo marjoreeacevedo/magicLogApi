@@ -1,5 +1,6 @@
 'use strict'
-let connection = require('../db/connection');
+const connection = require('../db/conexion');
+
 
 class userController {
 

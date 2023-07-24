@@ -4,8 +4,18 @@ CREATE TABLE IF NOT EXISTS usuario(
    pass VARCHAR NOT NULL
 );
 
-CREATE USER postgres SUPERUSER;
-CREATE DATABASE postgres WITH OWNER postgres;
+-- CREATE USER postgres SUPERUSER;
+-- CREATE DATABASE postgres WITH OWNER postgres;
+DROP TABLE producto;
+CREATE TABLE IF NOT EXISTS producto(
+  id SERIAL PRIMARY KEY,
+   nombre VARCHAR NOT NULL,
+   sku VARCHAR  NOT NULL,
+   precio INTEGER  NOT NULL,
+   cantidad INTEGER  NOT NULL,
+   vendedor VARCHAR  NOT NULL
+
+);
 
 
 

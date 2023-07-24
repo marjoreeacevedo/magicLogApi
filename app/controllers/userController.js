@@ -72,8 +72,8 @@ class userController {
             });
         }
     }else{
-            res.status(400).send({
-                status: 'Error',
+            res.status(200).send({
+                status: 'Success',
                 description: validate
             });
 

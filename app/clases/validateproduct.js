@@ -20,9 +20,19 @@ class validateproduct {
         
     }
 
+    user(mail,pass){
+        if (mail == "" || mail == undefined || pass == "" || pass == undefined) {
+            return 'error: usuario o contrasena no encontrado';
+        }
+
+        
+        return 'success'
+    }
+
   
 
 }
 
 let vproduct = new validateproduct();
+
 module.exports = vproduct;

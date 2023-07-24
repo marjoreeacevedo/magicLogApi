@@ -47,7 +47,8 @@ class userController {
 
     getUser(req, res) {
         const { mail,pass} = req.body;
-
+        let validate= validateproduct.user(mail,pass);
+        if (validate === 'success'){
         let query = `select id from usuario where mail='${mail}' and pass='${pass}'`;
         try {
             connection.query(query, (err, result) => {
@@ -70,7 +71,13 @@ class userController {
                 description: err
             });
         }
+    }else{
+            res.status(400).send({
+                status: 'Error',
+                description: validate
+            });
 
+    }
 
     }
 

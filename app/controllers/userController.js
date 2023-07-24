@@ -44,6 +44,36 @@ class userController {
        }
 
 }
+
+    getUser(req, res) {
+        const { mail,pass} = req.body;
+
+        let query = `select id from usuario where mail='${mail}' and pass='${pass}'`;
+        try {
+            connection.query(query, (err, result) => {
+                if (err) {
+                    return res.status(400).send({
+                        status: "Error",
+                        description: 'Error al consultar los productos Error: ' + err.message
+                    });
+                } else {
+                    return res.status(200).send({
+                        status: "Success",
+                        data: result.rows
+                    });
+                }
+
+            });
+        } catch (err) {
+            res.status(400).send({
+                status: "Error Catch",
+                description: err
+            });
+        }
+
+
+    }
+
     addProduct(req, res) {
         const { nombre,sku,precio,cantidad,vendedor} = req.body;
         let validate = validateproduct.product(nombre, sku, precio, cantidad);
@@ -200,6 +230,7 @@ class userController {
 }
 
 let register = new userController().register;
+let getuser = new userController().getUser;
 let addproduct = new userController().addProduct;
 let getproductseller = new userController().getProductSeller;
 let getproduct = new userController().getProduct;
@@ -212,7 +243,8 @@ module.exports = {
     getproductseller,
     getproduct,
     findproduct,
-    findproductrange
+    findproductrange,
+    getuser
 
 };
 

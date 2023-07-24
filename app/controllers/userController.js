@@ -20,7 +20,7 @@ class userController {
         const { mail, pass} = req.body;
         let query =`insert into usuario
         (mail, pass) values('${mail}','${pass}')`;
-        connection.conn().query(query, (err, result) => {
+        connection.query(query, (err, result) => {
             if (err) {
                 return res.status(400).send({
                     status: "Error",

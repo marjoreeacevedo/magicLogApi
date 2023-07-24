@@ -1,0 +1,11 @@
+CREATE TABLE IF NOT EXISTS usuario(
+    id SERIAL PRIMARY KEY,
+   mail VARCHAR NOT NULL,
+   pass VARCHAR NOT NULL
+);
+
+CREATE USER postgres SUPERUSER;
+CREATE DATABASE postgres WITH OWNER postgres;
+
+
+
